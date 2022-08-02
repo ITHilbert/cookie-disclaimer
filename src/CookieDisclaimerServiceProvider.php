@@ -83,6 +83,10 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ .'/Resources/assets' => public_path('vendor/cookiedisclaimer'),
         ]);
+
+        $this->publishes([
+            __DIR__ .'/Resources/views' => resource_path('views/vendor/cookiedisclaimer'),
+        ]);
     }
 
 
