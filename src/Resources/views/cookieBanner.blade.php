@@ -35,8 +35,6 @@
         </div>
         </div>
     </div>
-
-    <script src="{{ asset('vendor/cookiedisclaimer/cookiedisclaimer.js') }}"></script>
 @endif
 
 

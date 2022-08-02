@@ -81,7 +81,7 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
     public function publishAssets()
     {
         $this->publishes([
-            __DIR__ .'/Resources/assets' => public_path('vendor/cookiedisclaimer'),
+            __DIR__ .'/Resources/js' => resource_path('js/cookiedisclaimer'),
         ]);
 
         $this->publishes([

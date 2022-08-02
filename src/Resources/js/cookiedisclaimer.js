@@ -59,7 +59,7 @@ $(document).ready(function() {
      */
     function cookiesRewrite() {
         $('.cookie').each(function(index, value) {
-            console.log(index + ') ' + $(this).attr('data-key') + ':' + $(this).attr('data-value'));
+            //console.log(index + ') ' + $(this).attr('data-key') + ':' + $(this).attr('data-value'));
             setCookie($(this).attr('data-key'), $(this).attr('data-value'), 30);
         });
     }
@@ -119,7 +119,7 @@ $(document).ready(function() {
     $(window).bind('beforeunload', function() {
         console.log('Change Page');
         cookiesRewrite();
-        return false;
+        //return true;
     });
 
     //###############################################
@@ -148,7 +148,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "{{ route('cookies.allow') }}",
+            url: window.location.origin + "/cookies-allow",
             cache: false,
             data: data,
             dataType: "json",
