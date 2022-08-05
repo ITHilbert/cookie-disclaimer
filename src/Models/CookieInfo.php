@@ -16,7 +16,7 @@ class CookieInfo extends Model
     public static function getInfos(){
         $cis = CookieInfo::all();
 
-        $ausgabe = config('cookiedisclaimer.text');
+        $ausgabe =  config('cookiedisclaimer.text');
         $ausgabe .= '<h3>Cookies</h3>';
 
         $anz = 0;

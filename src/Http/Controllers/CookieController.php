@@ -26,7 +26,10 @@ class CookieController extends Controller
 
         $msg = array('status' => 'Okay', 'msg' => "Okay", 'info' => $ausgabe );
         return json_encode($msg);
+    }
 
+    public function cookieRichtlinie(Request $request){
+        return view('cookiedisclaimer::cookieRichtlinie');
     }
 
 }

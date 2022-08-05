@@ -13,9 +13,6 @@ Config File kopieren
 php artisan vendor:publish --provider="ITHilbert\CookieDisclaimer\CookieDisclaimerServiceProvider" 
 ```
 
-
-
-
 Zu den anderen Vue Components folgendes hinzufügen:
 ```
 //Cookie Disclaimer
