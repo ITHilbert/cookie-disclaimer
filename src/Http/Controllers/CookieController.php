@@ -1,27 +1,32 @@
 <?php
 namespace ITHilbert\CookieDisclaimer\Http\Controllers;
 
+use ITHilbert\CookieDisclaimer\Models\CookieInfo;
+use ITHilbert\CookieDisclaimer\Models\CookieScript;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Routing\Controller;
 
 class CookieController extends Controller
 {
-    public function cookiesAllow(Request $request){
-        $allow = $request->allow ?? false;
 
-        //hLogger::Log($allow);
+    public function loadScripteAfterCookiesAllow(Request $request){
+        $scipte = CookieScript::all();
 
-        session(['cookiesallow' => $allow]);
+        $ausgabe = '';
+        foreach($scipte as $sc){
+            $ausgabe .=  $sc->script ."\n";
+        }
 
-        $msg = array('status' => 'Okay', 'msg' => "Okay");
+        $msg = array('status' => 'Okay', 'msg' => "Okay", 'script' => $ausgabe );
         return json_encode($msg);
     }
 
-    public function cookiesAllowReset(Request $request){
-        session()->forget('cookiesallow');
+    public function loadCookieInfos(Request $request){
+        $ausgabe = CookieInfo::getInfos();
 
-        //dd(session('cookiesallow'));
-        return back();
+        $msg = array('status' => 'Okay', 'msg' => "Okay", 'info' => $ausgabe );
+        return json_encode($msg);
+
     }
+
 }

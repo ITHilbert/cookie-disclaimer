@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['web'])->group(function () {
-    Route::post('cookies-allow', [CookieController::class, 'cookiesAllow'])->name('cookies.allow');
-    Route::any('cookies-allow-clear', [CookieController::class, 'cookiesAllowReset'])->name('cookies.allow.reset');
+    Route::any('cookie-richtlinie', [CookieController::class, 'cookie.Richtlinie'])->name('cookie.richtlinie');
 });
 
 

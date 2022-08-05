@@ -81,16 +81,16 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
     public function publishAssets()
     {
         $this->publishes([
-            __DIR__ .'/Resources/js' => public_path('js'),
+            __DIR__ .'/Resources/js/cookiedisclaimer.js' => public_path('js/cookiedisclaimer.js'),
         ]);
 
-        $this->publishes([
+        /* $this->publishes([
             __DIR__ .'/Resources/js' => resource_path('js/cookiedisclaimer'),
         ]);
 
         $this->publishes([
             __DIR__ .'/Resources/views' => resource_path('views/vendor/cookiedisclaimer'),
-        ]);
+        ]); */
     }
 
 
@@ -102,6 +102,7 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/Routes/api.php');
     }
 
 
@@ -124,7 +125,7 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__ .'/Config/config.php' => config_path('cookiedisclaimer.php')
+            __DIR__ .'/Config/cookiedisclaimer.php' => config_path('cookiedisclaimer.php')
         ]);
     }
 

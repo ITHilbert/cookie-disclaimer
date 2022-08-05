@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use ITHilbert\CookieDisclaimer\Http\Controllers\CookieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/laravelkit', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+ */
+
+Route::middleware(['api'])->group(function () {
+    Route::any('load-scripte-after-cookies-allow', [CookieController::class, 'loadScripteAfterCookiesAllow'])->name('load.scripte.after.cookies.allow');
+    Route::post('load-cookie-infos', [CookieController::class, 'loadCookieInfos'])->name('load.cookie.infos');
 });
