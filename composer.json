@@ -2,7 +2,7 @@
     "name": "ithilbert/cookie-disclaimer",
     "type": "libary",
     "license": "MIT",
-    "description": "Neues Package für den Ihnalt einer Homepage",
+    "description": "Mein Cookie Disclaimer",
     "keywords": [
         "it-hilbert",
         "laravel",
@@ -18,11 +18,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "ITHilbert\\CookieDisclaimer\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "ITHilbert\\CookieDisclaimer\\Database\\Seeds\\": "Database/Seeders/",
             "ITHilbert\\CookieDisclaimer\\": "src/"
         }
     },
