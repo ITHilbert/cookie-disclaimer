@@ -1,3 +1,7 @@
+<?php
+use ITHilbert\CookieDisclaimer\Models\CookieInfo;
+?>
+
 @extends('layouts.law_pages')
 
 @section('head.titel', config('site.firma'). " – Cookie Richtlinie")
