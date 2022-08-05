@@ -30,6 +30,7 @@ class CookieController extends Controller
 
     public function cookieRichtlinie(Request $request){
         $active = '';
+
         return view('cookiedisclaimer::cookieRichtlinie')->with(compact('active'));;
     }
 
