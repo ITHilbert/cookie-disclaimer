@@ -40,6 +40,7 @@
 
             $('.cookies-not-accept').on('click', function() {
                 $('#cookie-disclaimer').modal('hide');
+                cookiestat(false);
             });
 
             $('.cookies-more-info').on('click', function() {
@@ -51,6 +52,7 @@
                 getScripte();
                 setCookiesAllowCookie();
                 $('#cookie-disclaimer').modal('hide');
+                cookiestat(true);
             });
 
             /**
@@ -139,6 +141,27 @@
                         if (response.status == "Okay") {
                             //$('#info-' + response.AUID).attr('info', response.msg);
                             writeScripte(response.script);
+                        } else {
+                            alert(response.msg);
+                        }
+                    }
+                });
+            };
+
+            function cookiestat(allow) {
+                //alert($('meta[name="csrf-token"]').attr('content'));
+                var data= {};
+                data['cookie_allow'] = allow;
+
+                $.ajax({
+                    type: "POST",
+                    url: window.location.origin + "/api/cookies-allow-stat",
+                    cache: false,
+                    data: data,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.status == "Okay") {
+                            //$('#info-' + response.AUID).attr('info', response.msg);
                         } else {
                             alert(response.msg);
                         }

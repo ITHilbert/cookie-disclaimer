@@ -1,7 +1,7 @@
 # Cookie Disclaimer
 
 Mein Cookie Banner.
-
+Lädt die JavaScript Dateien erst wenn der Benutzer zustimmt.
 
 ## Installation
 ```
@@ -21,17 +21,20 @@ Vue.component('cookies-allow-reset', require('./../../vendor/ithilbert/cookie-di
 Vue.component('cookies-infos', require('./../../vendor/ithilbert/cookie-disclaimer/src/Resources/Vue/cookies-infos.vue').default);
 ```
 
+Include Cookie-Banner
+Hinweis: Es muss noch im "vue-app" div sein.
+```
+@include('cookiedisclaimer::cookieDisclaimer')
+```
 
-### Composer
+Include JS Code wenn Cookie bereits gesetzt ist
 ```
-"autoload": {
-     "psr-4": {
-         "App\\": "app/",
-         "ITHilbert\\": "packages/",
-         "ITHilbert\\CookieDisclaimer\\": "packages/cookie-disclaimer/src/"
-     }
-},
+@if(isset($_COOKIE["cookies-allow"]))
+...code...
+@endif
+
 ```
+
 
 ### config/app.php
 Den Punkt Providers um folgenden Eintrag ergänzen:
