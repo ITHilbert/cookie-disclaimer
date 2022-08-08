@@ -36,6 +36,16 @@ Include JS Code wenn Cookie bereits gesetzt ist
 ```
 
 
+Add api Routes
+```
+Route::middleware(['api'])->group(function () {
+    Route::post('load-scripte-after-cookies-allow', [CookieController::class, 'loadScripteAfterCookiesAllow'])->name('load.scripte.after.cookies.allow');
+    Route::post('load-cookie-infos', [CookieController::class, 'loadCookieInfos'])->name('load.cookie.infos');
+    Route::post('cookies-allow-stat', [CookieController::class, 'cookiesAllowStat'])->name('cookies.allow.stat');
+});
+```
+
+
 ### config/app.php
 Den Punkt Providers um folgenden Eintrag ergänzen:
 ```
