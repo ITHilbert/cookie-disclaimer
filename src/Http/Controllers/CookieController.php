@@ -5,7 +5,7 @@ namespace ITHilbert\CookieDisclaimer\Http\Controllers;
 use ITHilbert\CookieDisclaimer\Models\CookieInfo;
 use ITHilbert\CookieDisclaimer\Models\CookieScript;
 use ITHilbert\CookieDisclaimer\Models\CookieStat;
-use ITHilbert\LaravelKit\App\Helpers\Browser;
+use ITHilbert\LaravelKit\Helpers\Browser;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
