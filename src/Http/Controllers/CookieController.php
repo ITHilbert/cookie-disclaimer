@@ -1,11 +1,11 @@
 <?php
 namespace ITHilbert\CookieDisclaimer\Http\Controllers;
 
-//use App\Helpers\hLogger;
+//use ITHilbert\LaravelKit\Helpers\hLogger;
 use ITHilbert\CookieDisclaimer\Models\CookieInfo;
 use ITHilbert\CookieDisclaimer\Models\CookieScript;
 use ITHilbert\CookieDisclaimer\Models\CookieStat;
-use ITHilbert\Visitors\Helpers\Browser;
+use ITHilbert\LaravelKit\App\Helpers\Browser;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 

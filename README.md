@@ -3,6 +3,12 @@
 Mein Cookie Banner.
 Lädt die JavaScript Dateien erst wenn der Benutzer zustimmt.
 
+## Benötigte Packages
+Laravel-Kit
+```
+composer require ithilbert/laravel-kit:dev-master
+```
+
 ## Installation
 ```
 composer require ithilbert/cookie-disclaimer
