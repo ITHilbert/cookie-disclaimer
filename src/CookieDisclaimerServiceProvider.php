@@ -25,8 +25,8 @@ class CookieDisclaimerServiceProvider extends ServiceProvider
         /*
         $this->registerCommands();
         $this->registerFactories();
-        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
         */
+        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
 
     }
 
