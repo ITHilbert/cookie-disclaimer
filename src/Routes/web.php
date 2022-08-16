@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->group(function () {
     Route::any('cookie-richtlinie', [CookieController::class, 'cookieRichtlinie'])->name('cookie.richtlinie');
+    Route::any('cookie-statistik', [CookieController::class, 'cookieStatistik'])->name('cookie.statistik');
 });
 
 

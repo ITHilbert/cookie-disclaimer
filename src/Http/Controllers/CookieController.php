@@ -65,7 +65,21 @@ class CookieController extends Controller
     public function cookieRichtlinie(Request $request){
         $active = '';
 
-        return view('cookiedisclaimer::cookieRichtlinie')->with(compact('active'));;
+        return view('cookiedisclaimer::cookieRichtlinie')->with(compact('active'));
     }
+
+    public function cookieStatistik(Request $request){
+        $active = '';
+
+        $infos = (object)[
+            'allow' => CookieStat::where('isRobot',0)->where('cookie_allow', 1)->count() ?? 0,
+            'disallow' => CookieStat::where('isRobot',0)->where('cookie_allow', 0)->count() ?? 0,
+        ];
+
+        $infos->gesamt = $infos->allow + $infos->disallow;
+
+        return view('cookiedisclaimer::cookieStatistik')->with(compact('active', 'infos'));
+    }
+
 
 }
