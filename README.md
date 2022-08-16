@@ -51,6 +51,11 @@ Route::middleware(['api'])->group(function () {
 });
 ```
 
+Link zu der Cookie Richtlinie
+```
+<a href="{{ route('cookie-richtlinie') }}">Cookie-Richtlinie</a>
+```
+
 
 ### config/app.php
 Den Punkt Providers um folgenden Eintrag ergänzen:

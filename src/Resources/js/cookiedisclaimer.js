@@ -9,12 +9,12 @@ $(document).ready(function() {
 
     $('#cookie-disclaimer').modal('show');
 
-    $('.cookie-not-accept').click(function() {
+    $('.cookie-not-accept').on('click', function() {
         sendCookieAllow(false);
         $('#cookie-disclaimer').modal('hide');
     });
 
-    $('.cookie-accept').click(function() {
+    $('.cookie-accept').on('click', function() {
         sendCookieAllow(true);
         $('#cookie-disclaimer').modal('hide');
         cookiesRewrite();
@@ -116,11 +116,11 @@ $(document).ready(function() {
     /**
      * Bevor die Seite  verlassen wird, werden die Cookies wieder hergestellt.
      */
-    $(window).bind('beforeunload', function() {
-        console.log('Change Page');
-        cookiesRewrite();
-        //return true;
-    });
+    //$(window).bind('beforeunload', function() {
+    //    console.log('Change Page');
+    //    cookiesRewrite();
+    //return true;
+    //});
 
     //###############################################
     //# Ajax
