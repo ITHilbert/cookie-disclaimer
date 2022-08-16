@@ -55,6 +55,7 @@ Route::middleware(['api'])->group(function () {
 ### config/app.php
 Den Punkt Providers um folgenden Eintrag ergänzen:
 ```
+\ITHilbert\LaravelKit\LaravelKitServiceProvider::class,
 \ITHilbert\CookieDisclaimer\CookieDisclaimerServiceProvider::class,
 ```
 

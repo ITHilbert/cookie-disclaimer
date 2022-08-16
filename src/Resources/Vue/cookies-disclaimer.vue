@@ -14,14 +14,14 @@
         </div>
         <div class="modal-footer">
             <div class="row w-100" >
-                <div class="col-4 text-left pt-3">
+                <div class="col-md-4 col-sm-5 text-left pt-3">
                     <a href="#" class="cookies-not-accept text-muted">ablehnen</a>
                 </div>
-                <div class="col-4 text-center pt-3">
+                <div class="col-md-4 col-sm-5 text-center pt-3">
                     <a href="#" class="cookies-more-info text-muted">mehr Informationen</a>
                 </div>
-                <div class="col-4 text-right">
-                    <button type="button" class="btn btn-primary cookies-accept">Zustimmen und weiter</button>
+                <div class="col-md-4 col-sm-10 text-right">
+                    <button type="button" class="btn btn-primary cookies-accept w-100">Zustimmen und weiter</button>
                 </div>
             </div>
         </div>
