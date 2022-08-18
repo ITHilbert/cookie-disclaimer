@@ -15,10 +15,10 @@
         <div class="modal-footer">
             <div class="row w-100" >
                 <div class="col-md-4 pt-3 text-center">
-                    <a href="#" class="cookies-not-accept">ablehnen</a>
+                    <a href="#" class="cookies-not-accept text-muted">ablehnen</a>
                 </div>
                 <div class="col-md-4 pt-3 text-center">
-                    <a href="#" class="cookies-more-info">mehr Informationen</a>
+                    <a href="#" class="cookies-more-info text-muted">mehr Informationen</a>
                 </div>
                 <div class="col-md-4 text-right">
                     <button type="button" class="btn btn-primary cookies-accept w-100">Zustimmen und weiter</button>
