@@ -34,5 +34,37 @@ use ITHilbert\CookieDisclaimer\Models\CookieInfo;
             <td align="right">100,00 %</td>
         </tr>
     </table>
+    <br>
+    <br>
+    <h2>Besucher</h2>
+    <table border="1">
+        <tr>
+            <th align="center"><b>Jahr</b></th>
+            <th align="center"><b>Monat</b></th>
+            <th align="center"><b>Besucher</b></th>
+        </tr>
+        @foreach ($besucher as $b)
+            <tr>
+                <td align="center">{{ $b->Jahr }}</td>
+                <td align="center">{{ $b->Monat }}</td>
+                <td align="center">{{ $b->Besucher }}</td>
+            </tr>
+        @endforeach
+    </table>
+    <br>
+    <h2>Seitenbesucher {{ date('Y') }}</h2>
+    <table border="1">
+        <tr>
+            <th align="center"><b>Seite</b></th>
+            <th align="center"><b>Besucher</b></th>
+        </tr>
+        @foreach ($seiten as $s)
+            <tr>
+                <td align="center">{{ $s->Seite }}</td>
+                <td align="center">{{ $s->Besucher }}</td>
+            </tr>
+        @endforeach
+    </table>
+
 @endsection
 
