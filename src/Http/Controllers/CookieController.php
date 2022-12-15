@@ -81,7 +81,17 @@ class CookieController extends Controller
         $infos->gesamt = $infos->allow + $infos->disallow;
 
         //Auswertung nach Monaten
-        $besucher = DB::select( DB::raw('SELECT year(`created_at`) as Jahr, month(`created_at`) as Monat, COUNT(id) AS Besucher FROM `cookie_statistics` GROUP BY year(`created_at`), month(`created_at`) ORDER BY year(`created_at`) DESC, month(`created_at`) DESC'));
+        $besucher = DB::select( DB::raw('SELECT year(`created_at`) as Jahr, month(`created_at`) as Monat, COUNT(id) AS Besucher
+                                         FROM `cookie_statistics`
+                                         WHERE year(`created_at`)='. date("Y") .'
+                                         GROUP BY year(`created_at`), month(`created_at`)
+                                         ORDER BY year(`created_at`) DESC, month(`created_at`) DESC'));
+
+        $besucherVJ = DB::select( DB::raw('SELECT year(`created_at`) as Jahr, month(`created_at`) as Monat, COUNT(id) AS Besucher
+                                           FROM `cookie_statistics`
+                                           WHERE year(`created_at`)='. (date("Y") -1) .'
+                                           GROUP BY year(`created_at`), month(`created_at`)
+                                           ORDER BY year(`created_at`) DESC, month(`created_at`) DESC'));
 
         //Auswertung nach Seiten
         $seiten = DB::select( DB::raw('SELECT `previos` AS Seite, COUNT(`id`) As Besucher
@@ -90,9 +100,15 @@ class CookieController extends Controller
                                          GROUP BY `previos`, year(`created_at`)
                                          ORDER BY COUNT(id)'));
 
+        $seitenVJ = DB::select( DB::raw('SELECT `previos` AS Seite, COUNT(`id`) As Besucher
+                                         FROM `cookie_statistics`
+                                         WHERE year(`created_at`)='. (date("Y") -1) .'
+                                         GROUP BY `previos`, year(`created_at`)
+                                         ORDER BY COUNT(id)'));
 
 
-        return view('cookiedisclaimer::cookieStatistik')->with(compact('active', 'infos', 'besucher', 'seiten'));
+
+        return view('cookiedisclaimer::cookieStatistik')->with(compact('active', 'infos', 'besucher', 'seiten', 'besucherVJ', 'seitenVJ'));
     }
 
 
