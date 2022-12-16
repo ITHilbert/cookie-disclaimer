@@ -1,7 +1,6 @@
 <?php
 namespace ITHilbert\CookieDisclaimer\Http\Controllers;
 
-//use ITHilbert\LaravelKit\Helpers\hLogger;
 use ITHilbert\CookieDisclaimer\Models\CookieInfo;
 use ITHilbert\CookieDisclaimer\Models\CookieScript;
 use ITHilbert\CookieDisclaimer\Models\CookieStat;
@@ -9,11 +8,12 @@ use ITHilbert\LaravelKit\Helpers\Browser;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use ITHilbert\LaravelKit\Helpers\hLogger;
 
 class CookieController extends Controller
 {
     public function cookiesAllowStat(Request $request){
-        //hLogger::Log($request->cookie_allow);
+        //hLogger::Log($request->back(2));
 
         $stat = new CookieStat();
         $stat->visitorID = Browser::getID();
@@ -23,8 +23,8 @@ class CookieController extends Controller
         $stat->browser = Browser::getBrowser();
         $stat->agent = Browser::getAgent();
         $stat->platform = Browser::getPlatform();
-        $stat->url = Browser::getURL();
-        $stat->previos = Browser::getURLBevor();
+        $stat->url = $request->cookieURL;
+        //$stat->previos = Browser::getURLBevor();
         $stat->isRobot = Browser::isRobot();
         $stat->isMobil = Browser::isMobil();
         if($request->cookie_allow == "true"){
@@ -94,16 +94,16 @@ class CookieController extends Controller
                                            ORDER BY year(`created_at`) DESC, month(`created_at`) DESC'));
 
         //Auswertung nach Seiten
-        $seiten = DB::select( DB::raw('SELECT `previos` AS Seite, COUNT(`id`) As Besucher
+        $seiten = DB::select( DB::raw('SELECT `url` AS Seite, COUNT(`id`) As Besucher
                                          FROM `cookie_statistics`
                                          WHERE year(`created_at`)='. date("Y") .'
-                                         GROUP BY `previos`, year(`created_at`)
+                                         GROUP BY `url`, year(`created_at`)
                                          ORDER BY COUNT(id)'));
 
-        $seitenVJ = DB::select( DB::raw('SELECT `previos` AS Seite, COUNT(`id`) As Besucher
+        $seitenVJ = DB::select( DB::raw('SELECT `url` AS Seite, COUNT(`id`) As Besucher
                                          FROM `cookie_statistics`
                                          WHERE year(`created_at`)='. (date("Y") -1) .'
-                                         GROUP BY `previos`, year(`created_at`)
+                                         GROUP BY `url`, year(`created_at`)
                                          ORDER BY COUNT(id)'));
 
 

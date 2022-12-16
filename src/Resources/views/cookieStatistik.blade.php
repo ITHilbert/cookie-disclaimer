@@ -82,7 +82,7 @@ use ITHilbert\CookieDisclaimer\Models\CookieInfo;
                 </tr>
                 @foreach ($seiten as $s)
                     <tr>
-                        <td align="center">{{ $s->Seite }}</td>
+                        <td align="left">{{ $s->Seite }}</td>
                         <td align="center">{{ $s->Besucher }}</td>
                     </tr>
                 @endforeach
@@ -97,7 +97,7 @@ use ITHilbert\CookieDisclaimer\Models\CookieInfo;
                 </tr>
                 @foreach ($seitenVJ as $s)
                     <tr>
-                        <td align="center">{{ $s->Seite }}</td>
+                        <td align="left">{{ $s->Seite }}</td>
                         <td align="center">{{ $s->Besucher }}</td>
                     </tr>
                 @endforeach

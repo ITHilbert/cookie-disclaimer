@@ -1,5 +1,5 @@
 <template>
-<div id="cookie-disclaimer" class="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+<div id="cookie-disclaimer" :cookieURL="cookieURL" class="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -33,6 +33,10 @@
 
 <script>
     export default {
+        props: {
+            'cookieURL': {}
+        },
+
         mounted() {
             //###############################################
             //# Cookie Disclaimer
@@ -152,6 +156,7 @@
                 //alert($('meta[name="csrf-token"]').attr('content'));
                 var data= {};
                 data['cookie_allow'] = allow;
+                data['cookieURL'] = $('#cookie-disclaimer').attr('cookieURL');
 
                 $.ajax({
                     type: "POST",
