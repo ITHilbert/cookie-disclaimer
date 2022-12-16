@@ -98,13 +98,13 @@ class CookieController extends Controller
                                          FROM `cookie_statistics`
                                          WHERE year(`created_at`)='. date("Y") .'
                                          GROUP BY `url`, year(`created_at`)
-                                         ORDER BY COUNT(id)'));
+                                         ORDER BY COUNT(id) DESC'));
 
         $seitenVJ = DB::select( DB::raw('SELECT `url` AS Seite, COUNT(`id`) As Besucher
                                          FROM `cookie_statistics`
                                          WHERE year(`created_at`)='. (date("Y") -1) .'
                                          GROUP BY `url`, year(`created_at`)
-                                         ORDER BY COUNT(id)'));
+                                         ORDER BY COUNT(id) DESC'));
 
 
 
