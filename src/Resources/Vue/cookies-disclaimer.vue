@@ -3,10 +3,10 @@
     <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
-        <h4 class="modal-title">Willkommen</h4>
+        <div class="modal-title">Willkommen</div>
         </div>
         <div class="modal-body">
-            <h2>Wir verwenden Cookies</h2>
+            <div class="modal-body-title1">Wir verwenden Cookies</div>
             <p>
                 Diese Website benutzt Cookies, die für den technischen Betrieb der Website erforderlich sind und stets gesetzt werden. Andere Cookies, um Inhalte und Anzeigen zu personalisieren und die Zugriffe auf unsere Website zu analysieren, werden nur mit Ihrer Zustimmung gesetzt. Außerdem geben wir Informationen zu Ihrer Verwendung unserer Website an unsere Partner für Werbung und Analysen weiter.
             </p>
@@ -29,7 +29,6 @@
     </div>
 </div>
 </template>
-
 
 <script>
     export default {

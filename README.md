@@ -27,6 +27,14 @@ Vue.component('cookies-allow-reset', require('./../../vendor/ithilbert/cookie-di
 Vue.component('cookies-infos', require('./../../vendor/ithilbert/cookie-disclaimer/src/Resources/Vue/cookies-infos.vue').default);
 ```
 
+Bei meiner app.scss hinzufügen
+```
+//Cookie Disclaimer
+@import './../../vendor/ithilbert/cookie-disclaimer/src/Resources/scss/modal.scss';
+```
+
+
+
 Include Cookie-Banner
 Hinweis: Es muss noch im "vue-app" div sein.
 ```

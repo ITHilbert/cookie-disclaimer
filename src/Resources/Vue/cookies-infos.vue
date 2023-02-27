@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-xl" role="document" >
     <div class="modal-content" >
         <div class="modal-header">
-        <h4 class="modal-title">Cookies</h4>
+        <span class="modal-title">Cookies</span>
         </div>
         <div class="modal-body" >
             <div class="container">
