@@ -13,22 +13,24 @@ class CreateCookieStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cookie_statistics', function (Blueprint $table) {
-            $table->id();
-            $table->string('visitorID', 255);
-            $table->string('ip', 255);
-            $table->string('sprache', 255);
-            $table->string('sprachelang', 255);
-            $table->string('browser', 255);
-            $table->string('agent', 255);
-            $table->string('platform', 255);
-            $table->string('url', 255);
-            $table->string('previos', 255);
-            $table->boolean('isRobot')->default(false);
-            $table->boolean('isMobil')->default(false);
-            $table->boolean('cookie_allow')->default(false);
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('cookie_statistics')) {
+            Schema::create('cookie_statistics', function (Blueprint $table) {
+                $table->id();
+                $table->string('visitorID', 255);
+                $table->string('ip', 255);
+                $table->string('sprache', 255);
+                $table->string('sprachelang', 255);
+                $table->string('browser', 255);
+                $table->string('agent', 255);
+                $table->string('platform', 255);
+                $table->string('url', 255);
+                $table->string('previos', 255);
+                $table->boolean('isRobot')->default(false);
+                $table->boolean('isMobil')->default(false);
+                $table->boolean('cookie_allow')->default(false);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

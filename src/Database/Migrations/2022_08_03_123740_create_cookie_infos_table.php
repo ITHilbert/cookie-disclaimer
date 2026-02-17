@@ -14,18 +14,20 @@ class CreateCookieInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('cookie_infos', function (Blueprint $table) {
-            $table->id();
-            $table->string('Anbieter');
-            $table->string('Typ');
-            $table->string('ScriptName');
-            $table->string('Cookie');
-            $table->string('Geltungsbereich');
-            $table->longText('Zweck');
-            $table->string('Speicherdauer');
-            $table->longText('Hinweis');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('cookie_infos')) {
+            Schema::create('cookie_infos', function (Blueprint $table) {
+                $table->id();
+                $table->string('Anbieter');
+                $table->string('Typ');
+                $table->string('ScriptName');
+                $table->string('Cookie');
+                $table->string('Geltungsbereich');
+                $table->longText('Zweck');
+                $table->string('Speicherdauer');
+                $table->longText('Hinweis');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
